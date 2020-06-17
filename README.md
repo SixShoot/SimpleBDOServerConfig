@@ -28,4 +28,5 @@ This is not my first program but i am still learning so if you come across any p
 Это не моя первая программа, но я все еще учусь, поэтому, если у вас возникнут какие-либо проблемы, напишите здесь сообщение, и я посмотрю, смогу ли я это исправить.
 
 Post on emudevs: https://emudevs.ru/threads/%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%B0%D1%8F-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0-bdo.573/
+
 Post on ragezone: http://forum.ragezone.com/f1000/release-simple-bdo-server-config-1149974/
