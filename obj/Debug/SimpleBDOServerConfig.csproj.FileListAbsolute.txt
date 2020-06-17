@@ -1,0 +1,10 @@
+C:\Users\Admin\Documents\Новая папка (3)\SimpleBDOServerConfig — копия\bin\Debug\SimpleBDOServerConfig.exe
+C:\Users\Admin\Documents\Новая папка (3)\SimpleBDOServerConfig — копия\bin\Debug\SimpleBDOServerConfig.pdb
+C:\Users\Admin\Documents\Новая папка (3)\SimpleBDOServerConfig — копия\obj\Debug\SimpleBDOServerConfig.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\Новая папка (3)\SimpleBDOServerConfig — копия\obj\Debug\BDOServerRatesEditor.Form1.resources
+C:\Users\Admin\Documents\Новая папка (3)\SimpleBDOServerConfig — копия\obj\Debug\BDOServerRatesEditor.Networks.resources
+C:\Users\Admin\Documents\Новая папка (3)\SimpleBDOServerConfig — копия\obj\Debug\BDOServerRatesEditor.Properties.Resources.resources
+C:\Users\Admin\Documents\Новая папка (3)\SimpleBDOServerConfig — копия\obj\Debug\BDOServerRatesEditor.Rates.resources
+C:\Users\Admin\Documents\Новая папка (3)\SimpleBDOServerConfig — копия\obj\Debug\SimpleBDOServerConfig.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\Новая папка (3)\SimpleBDOServerConfig — копия\obj\Debug\SimpleBDOServerConfig.exe
+C:\Users\Admin\Documents\Новая папка (3)\SimpleBDOServerConfig — копия\obj\Debug\SimpleBDOServerConfig.pdb

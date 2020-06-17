@@ -1,0 +1,1565 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+
+namespace BDOServerRatesEditor
+{
+  public class Rates : Form
+  {
+    private static readonly Regex sWhitespace = new Regex("\\s+");
+    private string _conf1 = Directory.GetCurrentDirectory() + "\\gameserver\\bin\\configs\\rate.properties";
+    private IContainer components = (IContainer) null;
+    public static string SearchKey1;
+    public static string SearchKey2;
+    public static string SearchKey3;
+    public static string SearchKey4;
+    public static string SearchKey5;
+    public static string SearchKey6;
+    public static string SearchKey7;
+    public static string SearchKey8;
+    public static string SearchKey9;
+    public static string SearchKey10;
+    public static string SearchKey11;
+    public static string SearchKey12;
+    public static string SearchKey13;
+    public static string SearchKey14;
+    public static string SearchKey15;
+    public static string SearchKey16;
+    public static string SearchKey17;
+    public static string SearchKey18;
+    private GroupBox groupBox1;
+    private Label label1;
+    private Label label14;
+    private Button button1;
+    private Label label13;
+    private TextBox textBox1;
+    private Label label12;
+    private TextBox textBox2;
+    private Label label11;
+    private TextBox textBox3;
+    private Label label10;
+    private Label label2;
+    private Label label9;
+    private Label label3;
+    private Label label8;
+    private TextBox textBox4;
+    private Label label7;
+    private TextBox textBox5;
+    private Label label6;
+    private TextBox textBox6;
+    private Label label5;
+    private TextBox textBox7;
+    private Label label4;
+    private TextBox textBox8;
+    private TextBox textBox14;
+    private TextBox textBox9;
+    private TextBox textBox13;
+    private TextBox textBox10;
+    private TextBox textBox12;
+    private TextBox textBox11;
+    private TextBox textBox15;
+    private TextBox textBox16;
+    private TextBox textBox17;
+    private TextBox textBox18;
+    private TextBox textBox19;
+    private TextBox textBox20;
+    private TextBox textBox21;
+    private TextBox textBox22;
+    private TextBox textBox23;
+    private TextBox textBox24;
+    private TextBox textBox25;
+    private TextBox textBox26;
+    private TextBox textBox27;
+    private TextBox textBox28;
+    private TextBox textBox29;
+    private TextBox textBox30;
+    private TextBox textBox31;
+    private TextBox textBox32;
+    private TextBox textBox33;
+    private TextBox textBox35;
+    private TextBox textBox34;
+    private Label label16;
+    private Label label17;
+    private Label label18;
+    private Label label19;
+    private Label label20;
+    private Label label21;
+    private Label label22;
+    private Label label23;
+    private Label label24;
+    private Label label25;
+    private Label label26;
+    private Label label27;
+    private Label label28;
+    private Label label29;
+    private Label label30;
+    private Label label31;
+    private Label label32;
+    private Label label33;
+    private Label label34;
+    private Label label35;
+    private Label label36;
+    private GroupBox groupBox2;
+    private GroupBox groupBox3;
+    private Label label15;
+    private Label label37;
+    private TextBox textBox36;
+    private Label label38;
+    private TextBox textBox37;
+    private Label label39;
+    private TextBox textBox38;
+    private Label label40;
+    private TextBox textBox39;
+    private Label label41;
+    private TextBox textBox40;
+    private Label label42;
+    private TextBox textBox41;
+    private Label label43;
+    private TextBox textBox42;
+    private Label label44;
+    private TextBox textBox43;
+    private Label label45;
+    private TextBox textBox44;
+    private Label label46;
+    private TextBox textBox45;
+    private Label label47;
+    private TextBox textBox46;
+    private Label label48;
+    private TextBox textBox47;
+    private Label label49;
+    private TextBox textBox48;
+    private Label label50;
+    private TextBox textBox49;
+    private Label label51;
+    private TextBox textBox50;
+    private Label label52;
+    private TextBox textBox51;
+    private Label label53;
+    private TextBox textBox52;
+    private Label label54;
+    private TextBox textBox53;
+    private Label label55;
+    private TextBox textBox54;
+    private Label label56;
+    private TextBox textBox55;
+    private TextBox textBox56;
+    private Label label57;
+    private TextBox textBox57;
+    private TextBox textBox58;
+    private TextBox textBox59;
+    private TextBox textBox60;
+    private TextBox textBox61;
+    private TextBox textBox62;
+    private Label label58;
+    private Label label59;
+    private Label label60;
+    private Label label61;
+    private Label label62;
+    private GroupBox groupBox4;
+    private GroupBox groupBox5;
+    private Label label63;
+    private Label label64;
+    private Label label65;
+    private Label label66;
+    private TextBox textBox63;
+    private Label label67;
+    private TextBox textBox64;
+    private TextBox textBox65;
+    private Label label68;
+    private TextBox textBox66;
+    private TextBox textBox67;
+    private TextBox textBox68;
+
+    public static string ReplaceWhitespace(string input, string replacement)
+    {
+      return Rates.sWhitespace.Replace(input, replacement);
+    }
+
+    public Rates()
+    {
+      this.InitializeComponent();
+      this.Name = "Simple BDO Server Config";
+      this.Text = "Simple BDO Server Config";
+      if (!File.Exists(this._conf1))
+      {
+        int num = (int) MessageBox.Show("Sorry the config files are missing!. Are you sure you copied this exe to your server root dir?\n\nExiting!", "Important files are missing!");
+        Environment.Exit(0);
+      }
+      string IniFileName = Directory.GetCurrentDirectory() + "\\gameserver\\bin\\configs\\rate.properties";
+      Rates.SearchKey1 = "rate.monster.drop ";
+      Rates.SearchKey2 = "rate.fishing.drop ";
+      Rates.SearchKey3 = "rate.collection.drop ";
+      Rates.SearchKey4 = "rate.steal.drop ";
+      Rates.SearchKey5 = "rate.tendency.exp ";
+      Rates.SearchKey6 = "rate.horse.exp ";
+      Rates.SearchKey7 = "rate.exp ";
+      Rates.SearchKey8 = "rate.skillexp ";
+      Rates.SearchKey9 = "rate.guild.skillexp ";
+      Rates.SearchKey10 = "rate.fitness.exp ";
+      Rates.SearchKey11 = "rate.life.exp ";
+      Rates.SearchKey12 = "rate.explore.exp ";
+      Rates.SearchKey13 = "rate.enchant.fail ";
+      Rates.SearchKey14 = "worker.luck.rate ";
+      Rates.SearchKey15 = "rate.enchant.armor.level ";
+      Rates.SearchKey16 = "rate.enchant.weapon.level ";
+      Rates.SearchKey17 = "rate.enchant.clothes.level ";
+      Rates.SearchKey18 = "rate.enchant.accessory.level ";
+      string iniProperty1 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey1);
+      string iniProperty2 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey2);
+      string iniProperty3 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey3);
+      string iniProperty4 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey4);
+      string iniProperty5 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey5);
+      string iniProperty6 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey6);
+      string iniProperty7 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey7);
+      string iniProperty8 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey8);
+      string iniProperty9 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey9);
+      string iniProperty10 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey10);
+      string iniProperty11 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey11);
+      string iniProperty12 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey12);
+      string iniProperty13 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey13);
+      string iniProperty14 = IniFile.GetIniProperty(IniFileName, Rates.SearchKey14);
+      if (iniProperty1 != null)
+        this.textBox1.Text = iniProperty1;
+      if (iniProperty2 != null)
+        this.textBox2.Text = iniProperty2;
+      if (iniProperty3 != null)
+        this.textBox3.Text = iniProperty3;
+      if (iniProperty4 != null)
+        this.textBox4.Text = iniProperty4;
+      if (iniProperty5 != null)
+        this.textBox5.Text = iniProperty5;
+      if (iniProperty6 != null)
+        this.textBox6.Text = iniProperty6;
+      if (iniProperty7 != null)
+        this.textBox7.Text = iniProperty7;
+      if (iniProperty8 != null)
+        this.textBox8.Text = iniProperty8;
+      if (iniProperty9 != null)
+        this.textBox9.Text = iniProperty9;
+      if (iniProperty10 != null)
+        this.textBox10.Text = iniProperty10;
+      if (iniProperty11 != null)
+        this.textBox11.Text = iniProperty11;
+      if (iniProperty12 != null)
+        this.textBox12.Text = iniProperty12;
+      if (iniProperty13 != null)
+        this.textBox13.Text = iniProperty13;
+      if (iniProperty14 != null)
+        this.textBox14.Text = iniProperty14;
+      this.GetEnchantedArmour(IniFile.GetEnchantArray(IniFileName, Rates.SearchKey15));
+      this.GetEnchantedWeapon(IniFile.GetEnchantArray(IniFileName, Rates.SearchKey16));
+      this.GetEnchantedClothes(IniFile.GetEnchantArray(IniFileName, Rates.SearchKey17));
+      this.GetEnchantedAccessory(IniFile.GetEnchantArray(IniFileName, Rates.SearchKey18));
+    }
+
+    public void GetEnchantedArmour(List<string> fieldList)
+    {
+      int box = 0;
+      foreach (string field in fieldList)
+      {
+        this.EnchantArmour(box, field);
+        ++box;
+      }
+    }
+
+    public void GetEnchantedWeapon(List<string> fieldList)
+    {
+      int box = 0;
+      foreach (string field in fieldList)
+      {
+        this.EnchantWeapon(box, field);
+        ++box;
+      }
+    }
+
+    public void GetEnchantedClothes(List<string> fieldList)
+    {
+      int box = 0;
+      foreach (string field in fieldList)
+      {
+        this.EnchantClothes(box, field);
+        ++box;
+      }
+    }
+
+    public void GetEnchantedAccessory(List<string> fieldList)
+    {
+      int box = 0;
+      foreach (string field in fieldList)
+      {
+        this.EnchantAccessory(box, field);
+        ++box;
+      }
+    }
+
+    public void EnchantWeapon(int box, string field)
+    {
+      switch (box)
+      {
+        case 0:
+          this.textBox36.Text = field;
+          break;
+        case 1:
+          this.textBox37.Text = field;
+          break;
+        case 2:
+          this.textBox38.Text = field;
+          break;
+        case 3:
+          this.textBox39.Text = field;
+          break;
+        case 4:
+          this.textBox40.Text = field;
+          break;
+        case 5:
+          this.textBox41.Text = field;
+          break;
+        case 6:
+          this.textBox42.Text = field;
+          break;
+        case 7:
+          this.textBox43.Text = field;
+          break;
+        case 8:
+          this.textBox44.Text = field;
+          break;
+        case 9:
+          this.textBox45.Text = field;
+          break;
+        case 10:
+          this.textBox46.Text = field;
+          break;
+        case 11:
+          this.textBox47.Text = field;
+          break;
+        case 12:
+          this.textBox48.Text = field;
+          break;
+        case 13:
+          this.textBox49.Text = field;
+          break;
+        case 14:
+          this.textBox50.Text = field;
+          break;
+        case 15:
+          this.textBox51.Text = field;
+          break;
+        case 16:
+          this.textBox52.Text = field;
+          break;
+        case 17:
+          this.textBox53.Text = field;
+          break;
+        case 18:
+          this.textBox54.Text = field;
+          break;
+        case 19:
+          this.textBox55.Text = field;
+          break;
+        case 20:
+          this.textBox56.Text = field;
+          break;
+      }
+    }
+
+    public void EnchantArmour(int box, string field)
+    {
+      switch (box)
+      {
+        case 0:
+          this.textBox15.Text = field;
+          break;
+        case 1:
+          this.textBox16.Text = field;
+          break;
+        case 2:
+          this.textBox17.Text = field;
+          break;
+        case 3:
+          this.textBox18.Text = field;
+          break;
+        case 4:
+          this.textBox19.Text = field;
+          break;
+        case 5:
+          this.textBox20.Text = field;
+          break;
+        case 6:
+          this.textBox21.Text = field;
+          break;
+        case 7:
+          this.textBox22.Text = field;
+          break;
+        case 8:
+          this.textBox23.Text = field;
+          break;
+        case 9:
+          this.textBox24.Text = field;
+          break;
+        case 10:
+          this.textBox25.Text = field;
+          break;
+        case 11:
+          this.textBox26.Text = field;
+          break;
+        case 12:
+          this.textBox27.Text = field;
+          break;
+        case 13:
+          this.textBox28.Text = field;
+          break;
+        case 14:
+          this.textBox29.Text = field;
+          break;
+        case 15:
+          this.textBox30.Text = field;
+          break;
+        case 16:
+          this.textBox31.Text = field;
+          break;
+        case 17:
+          this.textBox32.Text = field;
+          break;
+        case 18:
+          this.textBox33.Text = field;
+          break;
+        case 19:
+          this.textBox34.Text = field;
+          break;
+        case 20:
+          this.textBox35.Text = field;
+          break;
+      }
+    }
+
+    public void EnchantClothes(int box, string field)
+    {
+      switch (box)
+      {
+        case 0:
+          this.textBox57.Text = field;
+          break;
+        case 1:
+          this.textBox58.Text = field;
+          break;
+        case 2:
+          this.textBox59.Text = field;
+          break;
+        case 3:
+          this.textBox60.Text = field;
+          break;
+        case 4:
+          this.textBox61.Text = field;
+          break;
+        case 5:
+          this.textBox62.Text = field;
+          break;
+      }
+    }
+
+    public void EnchantAccessory(int box, string field)
+    {
+      switch (box)
+      {
+        case 0:
+          this.textBox63.Text = field;
+          break;
+        case 1:
+          this.textBox64.Text = field;
+          break;
+        case 2:
+          this.textBox65.Text = field;
+          break;
+        case 3:
+          this.textBox66.Text = field;
+          break;
+        case 4:
+          this.textBox67.Text = field;
+          break;
+        case 5:
+          this.textBox68.Text = field;
+          break;
+      }
+    }
+
+    private void Button1_Click(object sender, EventArgs e)
+    {
+      string str = Directory.GetCurrentDirectory() + "\\gameserver\\bin\\configs\\rate.properties";
+      IniFile iniFile = new IniFile(str);
+      string contents = "\n# Monster drop rate:\n# 100%\nrate.monster.drop =" + this.textBox1.Text + "\n\n# Fishing drop rate:\n# 100%\nrate.fishing.drop =" + this.textBox2.Text + "\n\n# Collection drop rate:\n# 100%\nrate.collection.drop =" + this.textBox3.Text + "\n\n# Steal drop rate:\n# 100%\nrate.steal.drop =" + this.textBox4.Text + "\n\n# Tendency Exp rate:\n# 100%\nrate.tendency.exp =" + this.textBox5.Text + "\n\n# Horse Exp rate:\n# 100%\nrate.horse.exp =" + this.textBox6.Text + "\n\n# Exp rate:\n# 100%\nrate.exp =" + this.textBox7.Text + "\n\n# Skillexp rate:\n# 100%\nrate.skillexp =" + this.textBox8.Text + "\n\n# GuildSkillexp rate:\n# 100%\nrate.guild.skillexp =" + this.textBox9.Text + "\n\n# Fitness exp rate:\n# 100%\nrate.fitness.exp =" + this.textBox10.Text + "\n\n# Life exp rate:\n# 100%\nrate.life.exp =" + this.textBox11.Text + "\n\n# Explore exp rate:\n# 100%\nrate.explore.exp =" + this.textBox12.Text + "\n\n# Enchant armor rates\n# Default: 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 357142, 256410, 172413, 117647, 76923, 62500, 50000, 40000, 28571, 20000, 20000, 20000, 20000, 20000, 20000\nrate.enchant.armor.level =" + this.textBox15.Text + "," + this.textBox16.Text + "," + this.textBox17.Text + "," + this.textBox18.Text + "," + this.textBox19.Text + "," + this.textBox20.Text + "," + this.textBox21.Text + "," + this.textBox22.Text + "," + this.textBox23.Text + "," + this.textBox24.Text + "," + this.textBox25.Text + "," + this.textBox26.Text + "," + this.textBox27.Text + "," + this.textBox28.Text + "," + this.textBox29.Text + "," + this.textBox30.Text + "," + this.textBox31.Text + "," + this.textBox32.Text + "," + this.textBox33.Text + "," + this.textBox34.Text + "," + this.textBox35.Text + "\n\n# Enchant weapon rates\n# Default: 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 303030, 204081, 142857, 100000, 66666, 40000, 25000, 20000, 20000, 20000, 20000, 20000, 20000\nrate.enchant.weapon.level =" + this.textBox36.Text + "," + this.textBox37.Text + "," + this.textBox38.Text + "," + this.textBox39.Text + "," + this.textBox40.Text + "," + this.textBox41.Text + "," + this.textBox42.Text + "," + this.textBox43.Text + "," + this.textBox44.Text + "," + this.textBox45.Text + "," + this.textBox46.Text + "," + this.textBox47.Text + "," + this.textBox48.Text + "," + this.textBox49.Text + "," + this.textBox50.Text + "," + this.textBox51.Text + "," + this.textBox52.Text + "," + this.textBox53.Text + "," + this.textBox54.Text + "," + this.textBox55.Text + "," + this.textBox56.Text + "\n\n# Enchant clothes rates\n# Default: 1000000, 300000, 150000, 70000, 40000, 20000\nrate.enchant.clothes.level =" + this.textBox57.Text + "," + this.textBox58.Text + "," + this.textBox59.Text + "," + this.textBox60.Text + "," + this.textBox61.Text + "," + this.textBox62.Text + "\n\n# Enchant accessory rates\n# Default: 1000000, 300000, 150000, 70000, 40000, 20000\nrate.enchant.accessory.level =" + this.textBox63.Text + "," + this.textBox64.Text + "," + this.textBox65.Text + "," + this.textBox66.Text + "," + this.textBox67.Text + "," + this.textBox68.Text + "\n\n# Enchant fail rates\n# Default: 10000\nrate.enchant.fail =" + this.textBox13.Text + "\n\n\n# Worker luck rate:\n# 100%\nworker.luck.rate =" + this.textBox14.Text + "\n";
+      File.WriteAllText(str, contents);
+      int num = (int) MessageBox.Show("Updated rate.properties");
+      this.Close();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Rates));
+      this.groupBox1 = new GroupBox();
+      this.label1 = new Label();
+      this.label14 = new Label();
+      this.button1 = new Button();
+      this.label13 = new Label();
+      this.textBox1 = new TextBox();
+      this.label12 = new Label();
+      this.textBox2 = new TextBox();
+      this.label11 = new Label();
+      this.textBox3 = new TextBox();
+      this.label10 = new Label();
+      this.label2 = new Label();
+      this.label9 = new Label();
+      this.label3 = new Label();
+      this.label8 = new Label();
+      this.textBox4 = new TextBox();
+      this.label7 = new Label();
+      this.textBox5 = new TextBox();
+      this.label6 = new Label();
+      this.textBox6 = new TextBox();
+      this.label5 = new Label();
+      this.textBox7 = new TextBox();
+      this.label4 = new Label();
+      this.textBox8 = new TextBox();
+      this.textBox14 = new TextBox();
+      this.textBox9 = new TextBox();
+      this.textBox13 = new TextBox();
+      this.textBox10 = new TextBox();
+      this.textBox12 = new TextBox();
+      this.textBox11 = new TextBox();
+      this.textBox15 = new TextBox();
+      this.textBox16 = new TextBox();
+      this.textBox17 = new TextBox();
+      this.textBox18 = new TextBox();
+      this.textBox19 = new TextBox();
+      this.textBox20 = new TextBox();
+      this.textBox21 = new TextBox();
+      this.textBox22 = new TextBox();
+      this.textBox23 = new TextBox();
+      this.textBox24 = new TextBox();
+      this.textBox25 = new TextBox();
+      this.textBox26 = new TextBox();
+      this.textBox27 = new TextBox();
+      this.textBox28 = new TextBox();
+      this.textBox29 = new TextBox();
+      this.textBox30 = new TextBox();
+      this.textBox31 = new TextBox();
+      this.textBox32 = new TextBox();
+      this.textBox33 = new TextBox();
+      this.textBox35 = new TextBox();
+      this.textBox34 = new TextBox();
+      this.label16 = new Label();
+      this.label17 = new Label();
+      this.label18 = new Label();
+      this.label19 = new Label();
+      this.label20 = new Label();
+      this.label21 = new Label();
+      this.label22 = new Label();
+      this.label23 = new Label();
+      this.label24 = new Label();
+      this.label25 = new Label();
+      this.label26 = new Label();
+      this.label27 = new Label();
+      this.label28 = new Label();
+      this.label29 = new Label();
+      this.label30 = new Label();
+      this.label31 = new Label();
+      this.label32 = new Label();
+      this.label33 = new Label();
+      this.label34 = new Label();
+      this.label35 = new Label();
+      this.label36 = new Label();
+      this.groupBox2 = new GroupBox();
+      this.groupBox3 = new GroupBox();
+      this.label15 = new Label();
+      this.label37 = new Label();
+      this.textBox36 = new TextBox();
+      this.label38 = new Label();
+      this.textBox37 = new TextBox();
+      this.label39 = new Label();
+      this.textBox38 = new TextBox();
+      this.label40 = new Label();
+      this.textBox39 = new TextBox();
+      this.label41 = new Label();
+      this.textBox40 = new TextBox();
+      this.label42 = new Label();
+      this.textBox41 = new TextBox();
+      this.label43 = new Label();
+      this.textBox42 = new TextBox();
+      this.label44 = new Label();
+      this.textBox43 = new TextBox();
+      this.label45 = new Label();
+      this.textBox44 = new TextBox();
+      this.label46 = new Label();
+      this.textBox45 = new TextBox();
+      this.label47 = new Label();
+      this.textBox46 = new TextBox();
+      this.label48 = new Label();
+      this.textBox47 = new TextBox();
+      this.label49 = new Label();
+      this.textBox48 = new TextBox();
+      this.label50 = new Label();
+      this.textBox49 = new TextBox();
+      this.label51 = new Label();
+      this.textBox50 = new TextBox();
+      this.label52 = new Label();
+      this.textBox51 = new TextBox();
+      this.label53 = new Label();
+      this.textBox52 = new TextBox();
+      this.label54 = new Label();
+      this.textBox53 = new TextBox();
+      this.label55 = new Label();
+      this.textBox54 = new TextBox();
+      this.label56 = new Label();
+      this.textBox55 = new TextBox();
+      this.textBox56 = new TextBox();
+      this.label57 = new Label();
+      this.textBox57 = new TextBox();
+      this.textBox58 = new TextBox();
+      this.textBox59 = new TextBox();
+      this.textBox60 = new TextBox();
+      this.textBox61 = new TextBox();
+      this.textBox62 = new TextBox();
+      this.label58 = new Label();
+      this.label59 = new Label();
+      this.label60 = new Label();
+      this.label61 = new Label();
+      this.label62 = new Label();
+      this.groupBox4 = new GroupBox();
+      this.groupBox5 = new GroupBox();
+      this.label63 = new Label();
+      this.label64 = new Label();
+      this.label65 = new Label();
+      this.label66 = new Label();
+      this.textBox63 = new TextBox();
+      this.label67 = new Label();
+      this.textBox64 = new TextBox();
+      this.label68 = new Label();
+      this.textBox68 = new TextBox();
+      this.textBox66 = new TextBox();
+      this.textBox65 = new TextBox();
+      this.textBox67 = new TextBox();
+      this.groupBox1.SuspendLayout();
+      this.groupBox2.SuspendLayout();
+      this.groupBox3.SuspendLayout();
+      this.groupBox4.SuspendLayout();
+      this.groupBox5.SuspendLayout();
+      this.SuspendLayout();
+      this.groupBox1.Controls.Add((Control) this.label1);
+      this.groupBox1.Controls.Add((Control) this.label14);
+      this.groupBox1.Controls.Add((Control) this.button1);
+      this.groupBox1.Controls.Add((Control) this.label13);
+      this.groupBox1.Controls.Add((Control) this.textBox1);
+      this.groupBox1.Controls.Add((Control) this.label12);
+      this.groupBox1.Controls.Add((Control) this.textBox2);
+      this.groupBox1.Controls.Add((Control) this.label11);
+      this.groupBox1.Controls.Add((Control) this.textBox3);
+      this.groupBox1.Controls.Add((Control) this.label10);
+      this.groupBox1.Controls.Add((Control) this.label2);
+      this.groupBox1.Controls.Add((Control) this.label9);
+      this.groupBox1.Controls.Add((Control) this.label3);
+      this.groupBox1.Controls.Add((Control) this.label8);
+      this.groupBox1.Controls.Add((Control) this.textBox4);
+      this.groupBox1.Controls.Add((Control) this.label7);
+      this.groupBox1.Controls.Add((Control) this.textBox5);
+      this.groupBox1.Controls.Add((Control) this.label6);
+      this.groupBox1.Controls.Add((Control) this.textBox6);
+      this.groupBox1.Controls.Add((Control) this.label5);
+      this.groupBox1.Controls.Add((Control) this.textBox7);
+      this.groupBox1.Controls.Add((Control) this.label4);
+      this.groupBox1.Controls.Add((Control) this.textBox8);
+      this.groupBox1.Controls.Add((Control) this.textBox14);
+      this.groupBox1.Controls.Add((Control) this.textBox9);
+      this.groupBox1.Controls.Add((Control) this.textBox13);
+      this.groupBox1.Controls.Add((Control) this.textBox10);
+      this.groupBox1.Controls.Add((Control) this.textBox12);
+      this.groupBox1.Controls.Add((Control) this.textBox11);
+      this.groupBox1.Location = new Point(51, 12);
+      this.groupBox1.Margin = new Padding(2);
+      this.groupBox1.Name = "groupBox1";
+      this.groupBox1.Padding = new Padding(2);
+      this.groupBox1.Size = new Size(277, 343);
+      this.groupBox1.TabIndex = 30;
+      this.groupBox1.TabStop = false;
+      this.groupBox1.Text = "Server Rates - (100 = 100%)";
+      this.label1.AutoSize = true;
+      this.label1.Location = new Point(25, 21);
+      this.label1.Name = "label1";
+      this.label1.Size = new Size(76, 13);
+      this.label1.TabIndex = 1;
+      this.label1.Text = "Monster Drops";
+      this.label14.AutoSize = true;
+      this.label14.Location = new Point(25, 281);
+      this.label14.Margin = new Padding(2, 0, 2, 0);
+      this.label14.Name = "label14";
+      this.label14.Size = new Size(69, 13);
+      this.label14.TabIndex = 28;
+      this.label14.Text = "Worker Luck";
+      this.button1.Location = new Point(105, 311);
+      this.button1.Name = "button1";
+      this.button1.Size = new Size(147, 23);
+      this.button1.TabIndex = 0;
+      this.button1.Text = "Save and Close";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new EventHandler(this.Button1_Click);
+      this.label13.AutoSize = true;
+      this.label13.Location = new Point(25, 261);
+      this.label13.Margin = new Padding(2, 0, 2, 0);
+      this.label13.Name = "label13";
+      this.label13.Size = new Size(66, 13);
+      this.label13.TabIndex = 27;
+      this.label13.Text = "Enchant Fail";
+      this.textBox1.Location = new Point(135, 18);
+      this.textBox1.Margin = new Padding(2);
+      this.textBox1.Name = "textBox1";
+      this.textBox1.Size = new Size(129, 20);
+      this.textBox1.TabIndex = 2;
+      this.label12.AutoSize = true;
+      this.label12.Location = new Point(25, 241);
+      this.label12.Margin = new Padding(2, 0, 2, 0);
+      this.label12.Name = "label12";
+      this.label12.Size = new Size(66, 13);
+      this.label12.TabIndex = 26;
+      this.label12.Text = "Explorer Exp";
+      this.textBox2.Location = new Point(135, 38);
+      this.textBox2.Margin = new Padding(2);
+      this.textBox2.Name = "textBox2";
+      this.textBox2.Size = new Size(129, 20);
+      this.textBox2.TabIndex = 3;
+      this.label11.AutoSize = true;
+      this.label11.Location = new Point(25, 221);
+      this.label11.Margin = new Padding(2, 0, 2, 0);
+      this.label11.Name = "label11";
+      this.label11.Size = new Size(45, 13);
+      this.label11.TabIndex = 25;
+      this.label11.Text = "Life Exp";
+      this.textBox3.Location = new Point(135, 58);
+      this.textBox3.Margin = new Padding(2);
+      this.textBox3.Name = "textBox3";
+      this.textBox3.Size = new Size(129, 20);
+      this.textBox3.TabIndex = 4;
+      this.label10.AutoSize = true;
+      this.label10.Location = new Point(25, 201);
+      this.label10.Margin = new Padding(2, 0, 2, 0);
+      this.label10.Name = "label10";
+      this.label10.Size = new Size(61, 13);
+      this.label10.TabIndex = 24;
+      this.label10.Text = "Fitness Exp";
+      this.label2.AutoSize = true;
+      this.label2.Location = new Point(25, 41);
+      this.label2.Margin = new Padding(2, 0, 2, 0);
+      this.label2.Name = "label2";
+      this.label2.Size = new Size(71, 13);
+      this.label2.TabIndex = 5;
+      this.label2.Text = "Fishing Drops";
+      this.label9.AutoSize = true;
+      this.label9.Location = new Point(25, 183);
+      this.label9.Margin = new Padding(2, 0, 2, 0);
+      this.label9.Name = "label9";
+      this.label9.Size = new Size(80, 13);
+      this.label9.TabIndex = 23;
+      this.label9.Text = "(Guild) Skill Exp";
+      this.label3.AutoSize = true;
+      this.label3.Location = new Point(25, 61);
+      this.label3.Margin = new Padding(2, 0, 2, 0);
+      this.label3.Name = "label3";
+      this.label3.Size = new Size(84, 13);
+      this.label3.TabIndex = 6;
+      this.label3.Text = "Collection Drops";
+      this.label8.AutoSize = true;
+      this.label8.Location = new Point(25, 161);
+      this.label8.Margin = new Padding(2, 0, 2, 0);
+      this.label8.Name = "label8";
+      this.label8.Size = new Size(47, 13);
+      this.label8.TabIndex = 22;
+      this.label8.Text = "Skill Exp";
+      this.textBox4.Location = new Point(135, 78);
+      this.textBox4.Margin = new Padding(2);
+      this.textBox4.Name = "textBox4";
+      this.textBox4.Size = new Size(129, 20);
+      this.textBox4.TabIndex = 5;
+      this.label7.AutoSize = true;
+      this.label7.Location = new Point(25, 141);
+      this.label7.Margin = new Padding(2, 0, 2, 0);
+      this.label7.Name = "label7";
+      this.label7.Size = new Size(60, 13);
+      this.label7.TabIndex = 21;
+      this.label7.Text = "Experience";
+      this.textBox5.Location = new Point(135, 98);
+      this.textBox5.Margin = new Padding(2);
+      this.textBox5.Name = "textBox5";
+      this.textBox5.Size = new Size(129, 20);
+      this.textBox5.TabIndex = 6;
+      this.label6.AutoSize = true;
+      this.label6.Location = new Point(25, 121);
+      this.label6.Margin = new Padding(2, 0, 2, 0);
+      this.label6.Name = "label6";
+      this.label6.Size = new Size(56, 13);
+      this.label6.TabIndex = 20;
+      this.label6.Text = "Horse Exp";
+      this.textBox6.Location = new Point(135, 118);
+      this.textBox6.Margin = new Padding(2);
+      this.textBox6.Name = "textBox6";
+      this.textBox6.Size = new Size(129, 20);
+      this.textBox6.TabIndex = 7;
+      this.label5.AutoSize = true;
+      this.label5.Location = new Point(25, 101);
+      this.label5.Margin = new Padding(2, 0, 2, 0);
+      this.label5.Name = "label5";
+      this.label5.Size = new Size(76, 13);
+      this.label5.TabIndex = 19;
+      this.label5.Text = "Tendency Exp";
+      this.textBox7.Location = new Point(135, 138);
+      this.textBox7.Margin = new Padding(2);
+      this.textBox7.Name = "textBox7";
+      this.textBox7.Size = new Size(129, 20);
+      this.textBox7.TabIndex = 8;
+      this.label4.AutoSize = true;
+      this.label4.Location = new Point(25, 81);
+      this.label4.Margin = new Padding(2, 0, 2, 0);
+      this.label4.Name = "label4";
+      this.label4.Size = new Size(62, 13);
+      this.label4.TabIndex = 18;
+      this.label4.Text = "Steal Drops";
+      this.textBox8.Location = new Point(135, 158);
+      this.textBox8.Margin = new Padding(2);
+      this.textBox8.Name = "textBox8";
+      this.textBox8.Size = new Size(129, 20);
+      this.textBox8.TabIndex = 9;
+      this.textBox14.Location = new Point(135, 278);
+      this.textBox14.Margin = new Padding(2);
+      this.textBox14.Name = "textBox14";
+      this.textBox14.Size = new Size(129, 20);
+      this.textBox14.TabIndex = 15;
+      this.textBox9.Location = new Point(135, 178);
+      this.textBox9.Margin = new Padding(2);
+      this.textBox9.Name = "textBox9";
+      this.textBox9.Size = new Size(129, 20);
+      this.textBox9.TabIndex = 10;
+      this.textBox13.Location = new Point(135, 258);
+      this.textBox13.Margin = new Padding(2);
+      this.textBox13.Name = "textBox13";
+      this.textBox13.Size = new Size(129, 20);
+      this.textBox13.TabIndex = 14;
+      this.textBox10.Location = new Point(135, 198);
+      this.textBox10.Margin = new Padding(2);
+      this.textBox10.Name = "textBox10";
+      this.textBox10.Size = new Size(129, 20);
+      this.textBox10.TabIndex = 11;
+      this.textBox12.Location = new Point(135, 238);
+      this.textBox12.Margin = new Padding(2);
+      this.textBox12.Name = "textBox12";
+      this.textBox12.Size = new Size(129, 20);
+      this.textBox12.TabIndex = 13;
+      this.textBox11.Location = new Point(135, 218);
+      this.textBox11.Margin = new Padding(2);
+      this.textBox11.Name = "textBox11";
+      this.textBox11.Size = new Size(129, 20);
+      this.textBox11.TabIndex = 12;
+      this.textBox15.Location = new Point(76, 19);
+      this.textBox15.Name = "textBox15";
+      this.textBox15.Size = new Size(100, 20);
+      this.textBox15.TabIndex = 28;
+      this.textBox16.Location = new Point(76, 42);
+      this.textBox16.Name = "textBox16";
+      this.textBox16.Size = new Size(100, 20);
+      this.textBox16.TabIndex = 29;
+      this.textBox17.Location = new Point(76, 65);
+      this.textBox17.Name = "textBox17";
+      this.textBox17.Size = new Size(100, 20);
+      this.textBox17.TabIndex = 30;
+      this.textBox18.Location = new Point(76, 88);
+      this.textBox18.Name = "textBox18";
+      this.textBox18.Size = new Size(100, 20);
+      this.textBox18.TabIndex = 31;
+      this.textBox19.Location = new Point(76, 111);
+      this.textBox19.Name = "textBox19";
+      this.textBox19.Size = new Size(100, 20);
+      this.textBox19.TabIndex = 32;
+      this.textBox20.Location = new Point(76, 134);
+      this.textBox20.Name = "textBox20";
+      this.textBox20.Size = new Size(100, 20);
+      this.textBox20.TabIndex = 33;
+      this.textBox21.Location = new Point(76, 157);
+      this.textBox21.Name = "textBox21";
+      this.textBox21.Size = new Size(100, 20);
+      this.textBox21.TabIndex = 34;
+      this.textBox22.Location = new Point(76, 180);
+      this.textBox22.Name = "textBox22";
+      this.textBox22.Size = new Size(100, 20);
+      this.textBox22.TabIndex = 35;
+      this.textBox23.Location = new Point(76, 203);
+      this.textBox23.Name = "textBox23";
+      this.textBox23.Size = new Size(100, 20);
+      this.textBox23.TabIndex = 36;
+      this.textBox24.Location = new Point(76, 226);
+      this.textBox24.Name = "textBox24";
+      this.textBox24.Size = new Size(100, 20);
+      this.textBox24.TabIndex = 37;
+      this.textBox25.Location = new Point(76, 249);
+      this.textBox25.Name = "textBox25";
+      this.textBox25.Size = new Size(100, 20);
+      this.textBox25.TabIndex = 38;
+      this.textBox26.Location = new Point(76, 272);
+      this.textBox26.Name = "textBox26";
+      this.textBox26.Size = new Size(100, 20);
+      this.textBox26.TabIndex = 39;
+      this.textBox27.Location = new Point(76, 295);
+      this.textBox27.Name = "textBox27";
+      this.textBox27.Size = new Size(100, 20);
+      this.textBox27.TabIndex = 40;
+      this.textBox28.Location = new Point(76, 318);
+      this.textBox28.Name = "textBox28";
+      this.textBox28.Size = new Size(100, 20);
+      this.textBox28.TabIndex = 41;
+      this.textBox29.Location = new Point(76, 341);
+      this.textBox29.Name = "textBox29";
+      this.textBox29.Size = new Size(100, 20);
+      this.textBox29.TabIndex = 42;
+      this.textBox30.Location = new Point(76, 364);
+      this.textBox30.Name = "textBox30";
+      this.textBox30.Size = new Size(100, 20);
+      this.textBox30.TabIndex = 43;
+      this.textBox31.Location = new Point(76, 387);
+      this.textBox31.Name = "textBox31";
+      this.textBox31.Size = new Size(100, 20);
+      this.textBox31.TabIndex = 44;
+      this.textBox32.Location = new Point(76, 410);
+      this.textBox32.Name = "textBox32";
+      this.textBox32.Size = new Size(100, 20);
+      this.textBox32.TabIndex = 45;
+      this.textBox33.Location = new Point(76, 433);
+      this.textBox33.Name = "textBox33";
+      this.textBox33.Size = new Size(100, 20);
+      this.textBox33.TabIndex = 46;
+      this.textBox35.Location = new Point(76, 479);
+      this.textBox35.Name = "textBox35";
+      this.textBox35.Size = new Size(100, 20);
+      this.textBox35.TabIndex = 48;
+      this.textBox34.Location = new Point(76, 456);
+      this.textBox34.Name = "textBox34";
+      this.textBox34.Size = new Size(100, 20);
+      this.textBox34.TabIndex = 47;
+      this.label16.AutoSize = true;
+      this.label16.Location = new Point(14, 22);
+      this.label16.Name = "label16";
+      this.label16.Size = new Size(42, 13);
+      this.label16.TabIndex = 54;
+      this.label16.Text = "Level 0";
+      this.label17.AutoSize = true;
+      this.label17.Location = new Point(14, 45);
+      this.label17.Name = "label17";
+      this.label17.Size = new Size(42, 13);
+      this.label17.TabIndex = 55;
+      this.label17.Text = "Level 1";
+      this.label18.AutoSize = true;
+      this.label18.Location = new Point(14, 68);
+      this.label18.Name = "label18";
+      this.label18.Size = new Size(42, 13);
+      this.label18.TabIndex = 56;
+      this.label18.Text = "Level 2";
+      this.label19.AutoSize = true;
+      this.label19.Location = new Point(14, 91);
+      this.label19.Name = "label19";
+      this.label19.Size = new Size(42, 13);
+      this.label19.TabIndex = 57;
+      this.label19.Text = "Level 3";
+      this.label20.AutoSize = true;
+      this.label20.Location = new Point(14, 114);
+      this.label20.Name = "label20";
+      this.label20.Size = new Size(42, 13);
+      this.label20.TabIndex = 58;
+      this.label20.Text = "Level 4";
+      this.label21.AutoSize = true;
+      this.label21.Location = new Point(14, 137);
+      this.label21.Name = "label21";
+      this.label21.Size = new Size(42, 13);
+      this.label21.TabIndex = 59;
+      this.label21.Text = "Level 5";
+      this.label22.AutoSize = true;
+      this.label22.Location = new Point(14, 160);
+      this.label22.Name = "label22";
+      this.label22.Size = new Size(42, 13);
+      this.label22.TabIndex = 60;
+      this.label22.Text = "Level 6";
+      this.label23.AutoSize = true;
+      this.label23.Location = new Point(14, 183);
+      this.label23.Name = "label23";
+      this.label23.Size = new Size(42, 13);
+      this.label23.TabIndex = 61;
+      this.label23.Text = "Level 7";
+      this.label24.AutoSize = true;
+      this.label24.Location = new Point(14, 206);
+      this.label24.Name = "label24";
+      this.label24.Size = new Size(42, 13);
+      this.label24.TabIndex = 62;
+      this.label24.Text = "Level 8";
+      this.label25.AutoSize = true;
+      this.label25.Location = new Point(14, 229);
+      this.label25.Name = "label25";
+      this.label25.Size = new Size(42, 13);
+      this.label25.TabIndex = 63;
+      this.label25.Text = "Level 9";
+      this.label26.AutoSize = true;
+      this.label26.Location = new Point(14, 252);
+      this.label26.Name = "label26";
+      this.label26.Size = new Size(48, 13);
+      this.label26.TabIndex = 64;
+      this.label26.Text = "Level 10";
+      this.label27.AutoSize = true;
+      this.label27.Location = new Point(14, 275);
+      this.label27.Name = "label27";
+      this.label27.Size = new Size(48, 13);
+      this.label27.TabIndex = 65;
+      this.label27.Text = "Level 11";
+      this.label28.AutoSize = true;
+      this.label28.Location = new Point(14, 298);
+      this.label28.Name = "label28";
+      this.label28.Size = new Size(48, 13);
+      this.label28.TabIndex = 66;
+      this.label28.Text = "Level 12";
+      this.label29.AutoSize = true;
+      this.label29.Location = new Point(14, 321);
+      this.label29.Name = "label29";
+      this.label29.Size = new Size(48, 13);
+      this.label29.TabIndex = 67;
+      this.label29.Text = "Level 13";
+      this.label30.AutoSize = true;
+      this.label30.Location = new Point(14, 344);
+      this.label30.Name = "label30";
+      this.label30.Size = new Size(48, 13);
+      this.label30.TabIndex = 68;
+      this.label30.Text = "Level 14";
+      this.label31.AutoSize = true;
+      this.label31.Location = new Point(14, 367);
+      this.label31.Name = "label31";
+      this.label31.Size = new Size(48, 13);
+      this.label31.TabIndex = 69;
+      this.label31.Text = "Level 15";
+      this.label32.AutoSize = true;
+      this.label32.Location = new Point(14, 390);
+      this.label32.Name = "label32";
+      this.label32.Size = new Size(48, 13);
+      this.label32.TabIndex = 70;
+      this.label32.Text = "Level 16";
+      this.label33.AutoSize = true;
+      this.label33.Location = new Point(14, 413);
+      this.label33.Name = "label33";
+      this.label33.Size = new Size(48, 13);
+      this.label33.TabIndex = 71;
+      this.label33.Text = "Level 17";
+      this.label34.AutoSize = true;
+      this.label34.Location = new Point(14, 436);
+      this.label34.Name = "label34";
+      this.label34.Size = new Size(48, 13);
+      this.label34.TabIndex = 72;
+      this.label34.Text = "Level 18";
+      this.label35.AutoSize = true;
+      this.label35.Location = new Point(14, 459);
+      this.label35.Name = "label35";
+      this.label35.Size = new Size(48, 13);
+      this.label35.TabIndex = 73;
+      this.label35.Text = "Level 19";
+      this.label36.AutoSize = true;
+      this.label36.Location = new Point(14, 482);
+      this.label36.Name = "label36";
+      this.label36.Size = new Size(48, 13);
+      this.label36.TabIndex = 74;
+      this.label36.Text = "Level 20";
+      this.groupBox2.Controls.Add((Control) this.label16);
+      this.groupBox2.Controls.Add((Control) this.label36);
+      this.groupBox2.Controls.Add((Control) this.textBox15);
+      this.groupBox2.Controls.Add((Control) this.label35);
+      this.groupBox2.Controls.Add((Control) this.textBox16);
+      this.groupBox2.Controls.Add((Control) this.label34);
+      this.groupBox2.Controls.Add((Control) this.textBox17);
+      this.groupBox2.Controls.Add((Control) this.label33);
+      this.groupBox2.Controls.Add((Control) this.textBox18);
+      this.groupBox2.Controls.Add((Control) this.label32);
+      this.groupBox2.Controls.Add((Control) this.textBox19);
+      this.groupBox2.Controls.Add((Control) this.label31);
+      this.groupBox2.Controls.Add((Control) this.textBox20);
+      this.groupBox2.Controls.Add((Control) this.label30);
+      this.groupBox2.Controls.Add((Control) this.textBox21);
+      this.groupBox2.Controls.Add((Control) this.label29);
+      this.groupBox2.Controls.Add((Control) this.textBox22);
+      this.groupBox2.Controls.Add((Control) this.label28);
+      this.groupBox2.Controls.Add((Control) this.textBox23);
+      this.groupBox2.Controls.Add((Control) this.label27);
+      this.groupBox2.Controls.Add((Control) this.textBox24);
+      this.groupBox2.Controls.Add((Control) this.label26);
+      this.groupBox2.Controls.Add((Control) this.textBox25);
+      this.groupBox2.Controls.Add((Control) this.label25);
+      this.groupBox2.Controls.Add((Control) this.textBox26);
+      this.groupBox2.Controls.Add((Control) this.label24);
+      this.groupBox2.Controls.Add((Control) this.textBox27);
+      this.groupBox2.Controls.Add((Control) this.label23);
+      this.groupBox2.Controls.Add((Control) this.textBox28);
+      this.groupBox2.Controls.Add((Control) this.label22);
+      this.groupBox2.Controls.Add((Control) this.textBox29);
+      this.groupBox2.Controls.Add((Control) this.label21);
+      this.groupBox2.Controls.Add((Control) this.textBox30);
+      this.groupBox2.Controls.Add((Control) this.label20);
+      this.groupBox2.Controls.Add((Control) this.textBox31);
+      this.groupBox2.Controls.Add((Control) this.label19);
+      this.groupBox2.Controls.Add((Control) this.textBox32);
+      this.groupBox2.Controls.Add((Control) this.label18);
+      this.groupBox2.Controls.Add((Control) this.textBox33);
+      this.groupBox2.Controls.Add((Control) this.label17);
+      this.groupBox2.Controls.Add((Control) this.textBox35);
+      this.groupBox2.Controls.Add((Control) this.textBox34);
+      this.groupBox2.Location = new Point(359, 12);
+      this.groupBox2.Name = "groupBox2";
+      this.groupBox2.Size = new Size(194, 514);
+      this.groupBox2.TabIndex = 75;
+      this.groupBox2.TabStop = false;
+      this.groupBox2.Text = "Armor Enchant Levels";
+      this.groupBox3.Controls.Add((Control) this.label15);
+      this.groupBox3.Controls.Add((Control) this.label37);
+      this.groupBox3.Controls.Add((Control) this.textBox36);
+      this.groupBox3.Controls.Add((Control) this.label38);
+      this.groupBox3.Controls.Add((Control) this.textBox37);
+      this.groupBox3.Controls.Add((Control) this.label39);
+      this.groupBox3.Controls.Add((Control) this.textBox38);
+      this.groupBox3.Controls.Add((Control) this.label40);
+      this.groupBox3.Controls.Add((Control) this.textBox39);
+      this.groupBox3.Controls.Add((Control) this.label41);
+      this.groupBox3.Controls.Add((Control) this.textBox40);
+      this.groupBox3.Controls.Add((Control) this.label42);
+      this.groupBox3.Controls.Add((Control) this.textBox41);
+      this.groupBox3.Controls.Add((Control) this.label43);
+      this.groupBox3.Controls.Add((Control) this.textBox42);
+      this.groupBox3.Controls.Add((Control) this.label44);
+      this.groupBox3.Controls.Add((Control) this.textBox43);
+      this.groupBox3.Controls.Add((Control) this.label45);
+      this.groupBox3.Controls.Add((Control) this.textBox44);
+      this.groupBox3.Controls.Add((Control) this.label46);
+      this.groupBox3.Controls.Add((Control) this.textBox45);
+      this.groupBox3.Controls.Add((Control) this.label47);
+      this.groupBox3.Controls.Add((Control) this.textBox46);
+      this.groupBox3.Controls.Add((Control) this.label48);
+      this.groupBox3.Controls.Add((Control) this.textBox47);
+      this.groupBox3.Controls.Add((Control) this.label49);
+      this.groupBox3.Controls.Add((Control) this.textBox48);
+      this.groupBox3.Controls.Add((Control) this.label50);
+      this.groupBox3.Controls.Add((Control) this.textBox49);
+      this.groupBox3.Controls.Add((Control) this.label51);
+      this.groupBox3.Controls.Add((Control) this.textBox50);
+      this.groupBox3.Controls.Add((Control) this.label52);
+      this.groupBox3.Controls.Add((Control) this.textBox51);
+      this.groupBox3.Controls.Add((Control) this.label53);
+      this.groupBox3.Controls.Add((Control) this.textBox52);
+      this.groupBox3.Controls.Add((Control) this.label54);
+      this.groupBox3.Controls.Add((Control) this.textBox53);
+      this.groupBox3.Controls.Add((Control) this.label55);
+      this.groupBox3.Controls.Add((Control) this.textBox54);
+      this.groupBox3.Controls.Add((Control) this.label56);
+      this.groupBox3.Controls.Add((Control) this.textBox55);
+      this.groupBox3.Controls.Add((Control) this.textBox56);
+      this.groupBox3.Location = new Point(559, 12);
+      this.groupBox3.Name = "groupBox3";
+      this.groupBox3.Size = new Size(194, 515);
+      this.groupBox3.TabIndex = 76;
+      this.groupBox3.TabStop = false;
+      this.groupBox3.Text = "Weapon Enchant Levels";
+      this.label15.AutoSize = true;
+      this.label15.Location = new Point(14, 22);
+      this.label15.Name = "label15";
+      this.label15.Size = new Size(42, 13);
+      this.label15.TabIndex = 54;
+      this.label15.Text = "Level 0";
+      this.label37.AutoSize = true;
+      this.label37.Location = new Point(14, 482);
+      this.label37.Name = "label37";
+      this.label37.Size = new Size(48, 13);
+      this.label37.TabIndex = 74;
+      this.label37.Text = "Level 20";
+      this.textBox36.Location = new Point(76, 19);
+      this.textBox36.Name = "textBox36";
+      this.textBox36.Size = new Size(100, 20);
+      this.textBox36.TabIndex = 31;
+      this.label38.AutoSize = true;
+      this.label38.Location = new Point(14, 459);
+      this.label38.Name = "label38";
+      this.label38.Size = new Size(48, 13);
+      this.label38.TabIndex = 73;
+      this.label38.Text = "Level 19";
+      this.textBox37.Location = new Point(76, 42);
+      this.textBox37.Name = "textBox37";
+      this.textBox37.Size = new Size(100, 20);
+      this.textBox37.TabIndex = 32;
+      this.label39.AutoSize = true;
+      this.label39.Location = new Point(14, 436);
+      this.label39.Name = "label39";
+      this.label39.Size = new Size(48, 13);
+      this.label39.TabIndex = 72;
+      this.label39.Text = "Level 18";
+      this.textBox38.Location = new Point(76, 65);
+      this.textBox38.Name = "textBox38";
+      this.textBox38.Size = new Size(100, 20);
+      this.textBox38.TabIndex = 33;
+      this.label40.AutoSize = true;
+      this.label40.Location = new Point(14, 413);
+      this.label40.Name = "label40";
+      this.label40.Size = new Size(48, 13);
+      this.label40.TabIndex = 71;
+      this.label40.Text = "Level 17";
+      this.textBox39.Location = new Point(76, 88);
+      this.textBox39.Name = "textBox39";
+      this.textBox39.Size = new Size(100, 20);
+      this.textBox39.TabIndex = 34;
+      this.label41.AutoSize = true;
+      this.label41.Location = new Point(14, 390);
+      this.label41.Name = "label41";
+      this.label41.Size = new Size(48, 13);
+      this.label41.TabIndex = 70;
+      this.label41.Text = "Level 16";
+      this.textBox40.Location = new Point(76, 111);
+      this.textBox40.Name = "textBox40";
+      this.textBox40.Size = new Size(100, 20);
+      this.textBox40.TabIndex = 35;
+      this.label42.AutoSize = true;
+      this.label42.Location = new Point(14, 367);
+      this.label42.Name = "label42";
+      this.label42.Size = new Size(48, 13);
+      this.label42.TabIndex = 69;
+      this.label42.Text = "Level 15";
+      this.textBox41.Location = new Point(76, 134);
+      this.textBox41.Name = "textBox41";
+      this.textBox41.Size = new Size(100, 20);
+      this.textBox41.TabIndex = 36;
+      this.label43.AutoSize = true;
+      this.label43.Location = new Point(14, 344);
+      this.label43.Name = "label43";
+      this.label43.Size = new Size(48, 13);
+      this.label43.TabIndex = 68;
+      this.label43.Text = "Level 14";
+      this.textBox42.Location = new Point(76, 157);
+      this.textBox42.Name = "textBox42";
+      this.textBox42.Size = new Size(100, 20);
+      this.textBox42.TabIndex = 37;
+      this.label44.AutoSize = true;
+      this.label44.Location = new Point(14, 321);
+      this.label44.Name = "label44";
+      this.label44.Size = new Size(48, 13);
+      this.label44.TabIndex = 67;
+      this.label44.Text = "Level 13";
+      this.textBox43.Location = new Point(76, 180);
+      this.textBox43.Name = "textBox43";
+      this.textBox43.Size = new Size(100, 20);
+      this.textBox43.TabIndex = 38;
+      this.label45.AutoSize = true;
+      this.label45.Location = new Point(14, 298);
+      this.label45.Name = "label45";
+      this.label45.Size = new Size(48, 13);
+      this.label45.TabIndex = 66;
+      this.label45.Text = "Level 12";
+      this.textBox44.Location = new Point(76, 203);
+      this.textBox44.Name = "textBox44";
+      this.textBox44.Size = new Size(100, 20);
+      this.textBox44.TabIndex = 39;
+      this.label46.AutoSize = true;
+      this.label46.Location = new Point(14, 275);
+      this.label46.Name = "label46";
+      this.label46.Size = new Size(48, 13);
+      this.label46.TabIndex = 65;
+      this.label46.Text = "Level 11";
+      this.textBox45.Location = new Point(76, 226);
+      this.textBox45.Name = "textBox45";
+      this.textBox45.Size = new Size(100, 20);
+      this.textBox45.TabIndex = 40;
+      this.label47.AutoSize = true;
+      this.label47.Location = new Point(14, 252);
+      this.label47.Name = "label47";
+      this.label47.Size = new Size(48, 13);
+      this.label47.TabIndex = 64;
+      this.label47.Text = "Level 10";
+      this.textBox46.Location = new Point(76, 249);
+      this.textBox46.Name = "textBox46";
+      this.textBox46.Size = new Size(100, 20);
+      this.textBox46.TabIndex = 41;
+      this.label48.AutoSize = true;
+      this.label48.Location = new Point(14, 229);
+      this.label48.Name = "label48";
+      this.label48.Size = new Size(42, 13);
+      this.label48.TabIndex = 63;
+      this.label48.Text = "Level 9";
+      this.textBox47.Location = new Point(76, 272);
+      this.textBox47.Name = "textBox47";
+      this.textBox47.Size = new Size(100, 20);
+      this.textBox47.TabIndex = 42;
+      this.label49.AutoSize = true;
+      this.label49.Location = new Point(14, 206);
+      this.label49.Name = "label49";
+      this.label49.Size = new Size(42, 13);
+      this.label49.TabIndex = 62;
+      this.label49.Text = "Level 8";
+      this.textBox48.Location = new Point(76, 295);
+      this.textBox48.Name = "textBox48";
+      this.textBox48.Size = new Size(100, 20);
+      this.textBox48.TabIndex = 43;
+      this.label50.AutoSize = true;
+      this.label50.Location = new Point(14, 183);
+      this.label50.Name = "label50";
+      this.label50.Size = new Size(42, 13);
+      this.label50.TabIndex = 61;
+      this.label50.Text = "Level 7";
+      this.textBox49.Location = new Point(76, 318);
+      this.textBox49.Name = "textBox49";
+      this.textBox49.Size = new Size(100, 20);
+      this.textBox49.TabIndex = 44;
+      this.label51.AutoSize = true;
+      this.label51.Location = new Point(14, 160);
+      this.label51.Name = "label51";
+      this.label51.Size = new Size(42, 13);
+      this.label51.TabIndex = 60;
+      this.label51.Text = "Level 6";
+      this.textBox50.Location = new Point(76, 341);
+      this.textBox50.Name = "textBox50";
+      this.textBox50.Size = new Size(100, 20);
+      this.textBox50.TabIndex = 45;
+      this.label52.AutoSize = true;
+      this.label52.Location = new Point(14, 137);
+      this.label52.Name = "label52";
+      this.label52.Size = new Size(42, 13);
+      this.label52.TabIndex = 59;
+      this.label52.Text = "Level 5";
+      this.textBox51.Location = new Point(76, 364);
+      this.textBox51.Name = "textBox51";
+      this.textBox51.Size = new Size(100, 20);
+      this.textBox51.TabIndex = 46;
+      this.label53.AutoSize = true;
+      this.label53.Location = new Point(14, 114);
+      this.label53.Name = "label53";
+      this.label53.Size = new Size(42, 13);
+      this.label53.TabIndex = 58;
+      this.label53.Text = "Level 4";
+      this.textBox52.Location = new Point(76, 387);
+      this.textBox52.Name = "textBox52";
+      this.textBox52.Size = new Size(100, 20);
+      this.textBox52.TabIndex = 47;
+      this.label54.AutoSize = true;
+      this.label54.Location = new Point(14, 91);
+      this.label54.Name = "label54";
+      this.label54.Size = new Size(42, 13);
+      this.label54.TabIndex = 57;
+      this.label54.Text = "Level 3";
+      this.textBox53.Location = new Point(76, 410);
+      this.textBox53.Name = "textBox53";
+      this.textBox53.Size = new Size(100, 20);
+      this.textBox53.TabIndex = 48;
+      this.label55.AutoSize = true;
+      this.label55.Location = new Point(14, 68);
+      this.label55.Name = "label55";
+      this.label55.Size = new Size(42, 13);
+      this.label55.TabIndex = 56;
+      this.label55.Text = "Level 2";
+      this.textBox54.Location = new Point(76, 433);
+      this.textBox54.Name = "textBox54";
+      this.textBox54.Size = new Size(100, 20);
+      this.textBox54.TabIndex = 49;
+      this.label56.AutoSize = true;
+      this.label56.Location = new Point(14, 45);
+      this.label56.Name = "label56";
+      this.label56.Size = new Size(42, 13);
+      this.label56.TabIndex = 55;
+      this.label56.Text = "Level 1";
+      this.textBox55.Location = new Point(76, 479);
+      this.textBox55.Name = "textBox55";
+      this.textBox55.Size = new Size(100, 20);
+      this.textBox55.TabIndex = 52;
+      this.textBox56.Location = new Point(76, 456);
+      this.textBox56.Name = "textBox56";
+      this.textBox56.Size = new Size(100, 20);
+      this.textBox56.TabIndex = 51;
+      this.label57.AutoSize = true;
+      this.label57.Location = new Point(8, 26);
+      this.label57.Name = "label57";
+      this.label57.Size = new Size(42, 13);
+      this.label57.TabIndex = 81;
+      this.label57.Text = "Level 0";
+      this.textBox57.Location = new Point(56, 23);
+      this.textBox57.Name = "textBox57";
+      this.textBox57.Size = new Size(100, 20);
+      this.textBox57.TabIndex = 16;
+      this.textBox58.Location = new Point(56, 44);
+      this.textBox58.Name = "textBox58";
+      this.textBox58.Size = new Size(100, 20);
+      this.textBox58.TabIndex = 17;
+      this.textBox59.Location = new Point(56, 65);
+      this.textBox59.Name = "textBox59";
+      this.textBox59.Size = new Size(100, 20);
+      this.textBox59.TabIndex = 18;
+      this.textBox60.Location = new Point(56, 86);
+      this.textBox60.Name = "textBox60";
+      this.textBox60.Size = new Size(100, 20);
+      this.textBox60.TabIndex = 19;
+      this.textBox61.Location = new Point(56, 107);
+      this.textBox61.Name = "textBox61";
+      this.textBox61.Size = new Size(100, 20);
+      this.textBox61.TabIndex = 20;
+      this.textBox62.Location = new Point(56, 128);
+      this.textBox62.Name = "textBox62";
+      this.textBox62.Size = new Size(100, 20);
+      this.textBox62.TabIndex = 21;
+      this.label58.AutoSize = true;
+      this.label58.Location = new Point(8, 131);
+      this.label58.Name = "label58";
+      this.label58.Size = new Size(42, 13);
+      this.label58.TabIndex = 86;
+      this.label58.Text = "Level 5";
+      this.label59.AutoSize = true;
+      this.label59.Location = new Point(8, 110);
+      this.label59.Name = "label59";
+      this.label59.Size = new Size(42, 13);
+      this.label59.TabIndex = 85;
+      this.label59.Text = "Level 4";
+      this.label60.AutoSize = true;
+      this.label60.Location = new Point(8, 89);
+      this.label60.Name = "label60";
+      this.label60.Size = new Size(42, 13);
+      this.label60.TabIndex = 84;
+      this.label60.Text = "Level 3";
+      this.label61.AutoSize = true;
+      this.label61.Location = new Point(8, 68);
+      this.label61.Name = "label61";
+      this.label61.Size = new Size(42, 13);
+      this.label61.TabIndex = 83;
+      this.label61.Text = "Level 2";
+      this.label62.AutoSize = true;
+      this.label62.Location = new Point(8, 47);
+      this.label62.Name = "label62";
+      this.label62.Size = new Size(42, 13);
+      this.label62.TabIndex = 82;
+      this.label62.Text = "Level 1";
+      this.groupBox4.Controls.Add((Control) this.label57);
+      this.groupBox4.Controls.Add((Control) this.label59);
+      this.groupBox4.Controls.Add((Control) this.label58);
+      this.groupBox4.Controls.Add((Control) this.label60);
+      this.groupBox4.Controls.Add((Control) this.textBox62);
+      this.groupBox4.Controls.Add((Control) this.label61);
+      this.groupBox4.Controls.Add((Control) this.textBox61);
+      this.groupBox4.Controls.Add((Control) this.textBox57);
+      this.groupBox4.Controls.Add((Control) this.label62);
+      this.groupBox4.Controls.Add((Control) this.textBox60);
+      this.groupBox4.Controls.Add((Control) this.textBox59);
+      this.groupBox4.Controls.Add((Control) this.textBox58);
+      this.groupBox4.Location = new Point(11, 367);
+      this.groupBox4.Name = "groupBox4";
+      this.groupBox4.Size = new Size(168, 160);
+      this.groupBox4.TabIndex = 87;
+      this.groupBox4.TabStop = false;
+      this.groupBox4.Text = "Clothes Enchant Levels";
+      this.groupBox5.Controls.Add((Control) this.label63);
+      this.groupBox5.Controls.Add((Control) this.label64);
+      this.groupBox5.Controls.Add((Control) this.label65);
+      this.groupBox5.Controls.Add((Control) this.label66);
+      this.groupBox5.Controls.Add((Control) this.textBox63);
+      this.groupBox5.Controls.Add((Control) this.label67);
+      this.groupBox5.Controls.Add((Control) this.textBox64);
+      this.groupBox5.Controls.Add((Control) this.label68);
+      this.groupBox5.Controls.Add((Control) this.textBox68);
+      this.groupBox5.Controls.Add((Control) this.textBox66);
+      this.groupBox5.Controls.Add((Control) this.textBox65);
+      this.groupBox5.Controls.Add((Control) this.textBox67);
+      this.groupBox5.Location = new Point(185, 367);
+      this.groupBox5.Name = "groupBox5";
+      this.groupBox5.Size = new Size(168, 160);
+      this.groupBox5.TabIndex = 88;
+      this.groupBox5.TabStop = false;
+      this.groupBox5.Text = "Accessory Enchant Levels";
+      this.label63.AutoSize = true;
+      this.label63.Location = new Point(8, 26);
+      this.label63.Name = "label63";
+      this.label63.Size = new Size(42, 13);
+      this.label63.TabIndex = 81;
+      this.label63.Text = "Level 0";
+      this.label64.AutoSize = true;
+      this.label64.Location = new Point(8, 110);
+      this.label64.Name = "label64";
+      this.label64.Size = new Size(42, 13);
+      this.label64.TabIndex = 85;
+      this.label64.Text = "Level 4";
+      this.label65.AutoSize = true;
+      this.label65.Location = new Point(8, 131);
+      this.label65.Name = "label65";
+      this.label65.Size = new Size(42, 13);
+      this.label65.TabIndex = 86;
+      this.label65.Text = "Level 5";
+      this.label66.AutoSize = true;
+      this.label66.Location = new Point(8, 89);
+      this.label66.Name = "label66";
+      this.label66.Size = new Size(42, 13);
+      this.label66.TabIndex = 84;
+      this.label66.Text = "Level 3";
+      this.textBox63.Location = new Point(56, 23);
+      this.textBox63.Name = "textBox63";
+      this.textBox63.Size = new Size(100, 20);
+      this.textBox63.TabIndex = 22;
+      this.label67.AutoSize = true;
+      this.label67.Location = new Point(8, 68);
+      this.label67.Name = "label67";
+      this.label67.Size = new Size(42, 13);
+      this.label67.TabIndex = 83;
+      this.label67.Text = "Level 2";
+      this.textBox64.Location = new Point(56, 44);
+      this.textBox64.Name = "textBox64";
+      this.textBox64.Size = new Size(100, 20);
+      this.textBox64.TabIndex = 23;
+      this.label68.AutoSize = true;
+      this.label68.Location = new Point(8, 47);
+      this.label68.Name = "label68";
+      this.label68.Size = new Size(42, 13);
+      this.label68.TabIndex = 82;
+      this.label68.Text = "Level 1";
+      this.textBox68.Location = new Point(56, 128);
+      this.textBox68.Name = "textBox68";
+      this.textBox68.Size = new Size(100, 20);
+      this.textBox68.TabIndex = 27;
+      this.textBox66.Location = new Point(56, 86);
+      this.textBox66.Name = "textBox66";
+      this.textBox66.Size = new Size(100, 20);
+      this.textBox66.TabIndex = 25;
+      this.textBox65.Location = new Point(56, 65);
+      this.textBox65.Name = "textBox65";
+      this.textBox65.Size = new Size(100, 20);
+      this.textBox65.TabIndex = 24;
+      this.textBox67.Location = new Point(56, 107);
+      this.textBox67.Name = "textBox67";
+      this.textBox67.Size = new Size(100, 20);
+      this.textBox67.TabIndex = 26;
+      this.AutoScaleDimensions = new SizeF(6f, 13f);
+      this.AutoScaleMode = AutoScaleMode.Font;
+      this.ClientSize = new Size(764, 537);
+      this.Controls.Add((Control) this.groupBox5);
+      this.Controls.Add((Control) this.groupBox4);
+      this.Controls.Add((Control) this.groupBox3);
+      this.Controls.Add((Control) this.groupBox2);
+      this.Controls.Add((Control) this.groupBox1);
+      this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      this.Margin = new Padding(2);
+      this.Name = nameof (Rates);
+      this.Text = nameof (Rates);
+      this.groupBox1.ResumeLayout(false);
+      this.groupBox1.PerformLayout();
+      this.groupBox2.ResumeLayout(false);
+      this.groupBox2.PerformLayout();
+      this.groupBox3.ResumeLayout(false);
+      this.groupBox3.PerformLayout();
+      this.groupBox4.ResumeLayout(false);
+      this.groupBox4.PerformLayout();
+      this.groupBox5.ResumeLayout(false);
+      this.groupBox5.PerformLayout();
+      this.ResumeLayout(false);
+    }
+  }
+}
